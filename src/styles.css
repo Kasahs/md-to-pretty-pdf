@@ -1,20 +1,30 @@
-/* Import GitHub Markdown styles */
-@import 'node_modules/github-markdown-css/github-markdown.css';
+/**
+ * Custom styles for markdown-to-pdf converter
+ *
+ * This CSS file provides basic layout and print-specific styles.
+ * Most of the markdown styling comes from github-markdown-css,
+ * and code highlighting styles come from highlight.js.
+ */
 
-/* Base styles */
+/* Import GitHub Markdown styles */
+/* @import 'node_modules/github-markdown-css/github-markdown.css'; */
+/* @import 'node_modules/highlight.js/styles/github.css'; */
+
+/* Base styles for the document */
 body {
+    /* Use system font stack for best rendering */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     line-height: 1.5;
     word-wrap: break-word;
 }
 
+/* Container for markdown content */
 .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
     max-width: 100%;
     margin: 0 auto;
     padding: 2em;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 /* Image handling */
@@ -28,6 +38,7 @@ body {
 
 /* Print-specific styles */
 @media print {
+    /* Base print settings */
     body {
         font-size: 12pt;
     }
@@ -48,13 +59,13 @@ body {
         page-break-before: avoid;
     }
 
-    /* Avoid breaking inside elements */
+    /* Prevent unwanted page breaks inside elements */
     pre, blockquote, table, figure, img {
         page-break-inside: avoid;
-        max-height: 500px; /* Prevent large images from being cut off */
+        max-height: 500px; /* Prevent oversized elements */
     }
 
-    /* Avoid orphaned headers */
+    /* Prevent orphaned headers */
     h1, h2, h3, h4, h5, h6 {
         page-break-after: avoid;
     }
@@ -64,19 +75,13 @@ body {
         page-break-before: always;
     }
 
-    /* Ensure links are readable */
+    /* Ensure links are readable in print */
     a {
         color: #0366d6 !important;
         text-decoration: underline;
     }
 
-    /* Adjust code blocks for print */
-    pre, code {
-        background-color: #f6f8fa !important;
-        border: 1px solid #ddd !important;
-    }
-
-    /* Ensure tables are readable */
+    /* Table styles for better print readability */
     table {
         border-collapse: collapse;
         width: 100%;

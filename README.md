@@ -27,16 +27,19 @@ npm install
 ## Usage
 
 Basic usage:
+
 ```bash
 node index.js input.md
 ```
 
 With options:
+
 ```bash
 node index.js input.md --font-size=14 --margin-right=15 --margin-left=15
 ```
 
 Using npm script:
+
 ```bash
 npm run convert -- input.md --scale=0.8 --font-size=14
 ```
@@ -62,7 +65,8 @@ npm run convert -- input.md --scale=0.8 --font-size=14
 
 The tool provides two ways to control the output size:
 
-1. **Font Size (`--font-size`)**: 
+1. **Font Size (`--font-size`)**:
+
    - Changes the base font size of the document
    - Automatically scales headings and code blocks proportionally
    - Most effective for reducing page count
@@ -89,18 +93,18 @@ The tool provides two ways to control the output size:
 ## Development Notes
 
 Current Implementation:
+
 - Uses Puppeteer's PDF generation with custom viewport sizing
 - Implements CSS transform for scaling
 - Handles local image paths automatically
 - Waits for full content load before PDF generation
 
 Future Improvements:
-1. Add header/footer customization
-2. Support for custom CSS themes
+
+1. Support for footnotes
+2. Support for latex math
 3. Table of contents generation
 4. Multiple markdown file merging
-5. Custom page size options
-6. Watermark support
 
 ## Security Considerations
 
